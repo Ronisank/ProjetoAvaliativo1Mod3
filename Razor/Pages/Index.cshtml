@@ -1,0 +1,74 @@
+﻿@page
+
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@model IndexModel
+@{
+    ViewData["Title"] = "DevInHouse FármacosMQ";
+}
+
+<div class="text-center">
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <div>
+
+            <h2>Cadastre seu medicamento</h2>
+        </div>
+        <form method="post" id="Name">
+            <div>
+                <label for="Name">Nome do Medicamento</label><br>
+                <input id="Medicine">
+            </div>
+            <div>
+                <label for="Name">Nome da substância</label><br>
+                <input id="Substance">
+            </div>
+            <div>
+                <label for="Name">Nome da fabricante</label><br>
+                <input id="Pharma">
+            </div>
+            <div>
+                <label for="Name">Descrição</label><br>
+                <textarea id="Description"></textarea>
+            </div>
+
+            <div>
+                <button id="Ok">Pesquisar</button>
+            </div>
+        </form>
+
+        <script>
+            const submit = document.querySelector("#Ok")
+            const saveContent = document.querySelector("#Name")
+            //const saveContent = document.querySelector("#Name")
+            //const saveContent = document.querySelector("#Name")
+            //const saveContent = document.querySelector("#Name")
+
+            submit.onclick = () => {
+                const inputs = {
+
+                    "NameDrugs": saveContent.value,
+                    "Substance": saveContent.value,
+                    "PharmaceuticalIndustry": saveContent.value,
+                    "Description": saveContent.value,
+                }
+
+                fetch("https://localhost:5219/api/Medicine",
+                    {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(inputs),
+                    }).then(() => {
+                        //atualizaFront()
+                    })
+            }
+        </script>
+    }
+
+
+    <hr>
+</div>

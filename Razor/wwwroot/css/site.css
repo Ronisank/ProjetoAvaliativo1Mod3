@@ -1,0 +1,52 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+div {
+    margin-bottom: 10px;
+}
+
+label {
+    font-family: 'Comic Sans MS';
+    font-size: 15px;
+    font-weight:bold;
+}
+input{
+    border-radius: 5px 5px;
+    border: 2px solid blue;
+}
+textarea {
+    border-radius: 5px 5px;
+    width: 200px;
+    height: 100px;
+    font-family: Calibri;
+    font-size: 15px;
+    border: 2px solid blue;
+}
+button {
+    border-radius: 5px 5px;
+    border: 2px solid blue;
+    font-family: 'Comic Sans MS';
+}
+h2{
+    font-family: 'Comic Sans MS';
+}
